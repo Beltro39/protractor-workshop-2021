@@ -1,4 +1,5 @@
 import { $, browser } from 'protractor';
+
 import {
   ProductListPage, MenuContentPage, ProductAddedModalPage,
   SummaryStepPage, SignInStepPage, AddressStepPage,
@@ -15,6 +16,7 @@ describe('Buy a t-shirt', () => {
   const shippingStepPage: ShippingStepPage = new ShippingStepPage();
   const paymentStepPage: PaymentStepPage = new PaymentStepPage();
   const bankPaymentPage: BankPaymentPage = new BankPaymentPage();
+
   describe('Open the page in the browser', () => {
 
     it('then the page should be loaded', async () => {
