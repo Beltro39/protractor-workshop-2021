@@ -3,7 +3,8 @@ import { reporter } from './helpers/reporter';
 
 export const config: Config = {
   framework: 'jasmine',
-  specs: [ '../test/google.spec.js' ],
+  specs: ['../test/**/*.spec.js'],
+  getPageTimeout: 40000,
   SELENIUM_PROMISE_MANAGER: false,
   capabilities: {
     browserName: 'chrome',
@@ -11,7 +12,11 @@ export const config: Config = {
       args: ['--headless', '--disable-gpu']
     }
   },
+  jasmineNodeOpts: {
+    defaultTimeoutInterval: 120000
+  },
   onPrepare: () => {
+    browser.manage().timeouts().implicitlyWait(0);
     browser.ignoreSynchronization = true;
     reporter();
   }
